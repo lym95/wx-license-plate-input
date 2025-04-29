@@ -1,0 +1,5 @@
+{
+  "usingComponents" : {
+    "plate-input" : "/components/plate-input/index"
+  }
+}

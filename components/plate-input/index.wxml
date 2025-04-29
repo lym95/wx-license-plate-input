@@ -1,0 +1,67 @@
+<view class="main-mask">
+  <view class="main-plate animation-scale-up">
+    <view class="main-plate-body">
+      <view class="main-plate-word {{currenttIndex === 0 ? 'active' : ''}}" bindtap="inputSwitch" data-index="0">
+        <text>{{currentInputValue[0]}}</text>
+      </view>
+      <view class="main-plate-word {{currenttIndex === 1 ? 'active' : ''}}" bindtap="inputSwitch" data-index="1">
+        <text>{{currentInputValue[1]}}</text>
+      </view>
+      <view class="main-plate-dot"></view>
+      <view class="main-plate-word {{currenttIndex === 2 ? 'active' : ''}}" bindtap="inputSwitch" data-index="2">
+        <text>{{currentInputValue[2]}}</text>
+      </view>
+      <view class="main-plate-word {{currenttIndex === 3 ? 'active' : ''}}" bindtap="inputSwitch" data-index="3">
+        <text>{{currentInputValue[3]}}</text>
+      </view>
+      <view class="main-plate-word {{currenttIndex === 4 ? 'active' : ''}}" bindtap="inputSwitch" data-index="4">
+        <text>{{currentInputValue[4]}}</text>
+      </view>
+      <view class="main-plate-word {{currenttIndex === 5 ? 'active' : ''}}" bindtap="inputSwitch" data-index="5">
+        <text>{{currentInputValue[5]}}</text>
+      </view>
+      <view class="main-plate-word {{currenttIndex === 6 ? 'active' : ''}}" bindtap="inputSwitch" data-index="6">
+        <text>{{currentInputValue[6]}}</text>
+      </view>
+      <view class="main-plate-word {{currenttIndex === 7 ? 'active' : ''}}" bindtap="inputSwitch" data-index="7" style="background-color: {{currentInputValue[7]?'':'var(--td-primary-color-1)'}};">
+        <text wx:if="{{currenttIndex > 7||currentInputValue[7]}}">{{currentInputValue[7]}}</text>
+        <text wx:else="" class="electric">新能源</text>
+      </view>
+    </view>
+
+    <view class="main-plate-foot">
+      <view class="main-plate-keyboard">
+        <view id="keyboard">
+          <block wx:if="{{inputType === 1}}">
+            <view hover-class="hover" class="main-plate-key" wx:for="{{provincesText}}" wx:key="*this" data-value="{{item}}" bindtap="chooseKey">{{item}}</view>
+            <text wx:for="{{2}}" wx:key="index" class="main-plate-key fill-block"></text>
+          </block>
+          <block wx:if="{{inputType >= 3}}">
+            <view hover-class="hover" class="main-plate-key" wx:for="{{numberText}}" wx:key="*this" data-value="{{item}}" bindtap="chooseKey">{{item}}</view>
+          </block>
+          <block wx:if="{{inputType >= 2}}">
+            <view hover-class="hover" class="main-plate-key" wx:for="{{wordText}}" wx:key="*this" data-value="{{item}}" bindtap="chooseKey">{{item}}</view>
+          </block>
+          <block wx:if="{{inputType === 2}}">
+            <view wx:for="{{10}}" wx:key="index" class="main-plate-key fill-block"></view>
+          </block>
+          <block wx:if="{{inputType === 3}}">
+            <text wx:for="{{fillBlock}}" wx:key="num" class="main-plate-key fill-block"></text>
+          </block>
+          <block wx:if="{{inputType === 4}}">
+            <view hover-class="hover" class="main-plate-key" wx:for="{{lastWordText}}" wx:key="*this" data-value="{{item}}" bindtap="chooseKey">{{item}}</view>
+          </block>
+        </view>
+      </view>
+      <view class="main-plate-btn-group">
+        <view>
+          <button class="main-plate-btn main-plate-btn--cancel" bindtap="close">取消</button>
+        </view>
+        <view>
+          <button class="main-plate-btn main-plate-btn--delete" bindtap="deleteKey">删除</button>
+          <button class="main-plate-btn main-plate-btn--submit" bindtap="exportPlate">确定</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

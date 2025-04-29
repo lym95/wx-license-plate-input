@@ -1,0 +1,183 @@
+.main-mask {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+.main-plate {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  background: #fff;
+  padding: 25rpx 25rpx 0 25rpx;
+}
+
+.main-plate-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-plate-type {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-plate-type label {
+  display: inline-block;
+  min-height: 32rpx;
+  font-size: 26rpx;
+  margin-right: 10rpx;
+}
+
+.main-plate-body {
+  box-sizing: border-box;
+  /* padding: 30rpx 0; */
+  padding-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-plate-word {
+  border: 1rpx solid #ccc;
+  border-radius: 10rpx;
+  height: 0;
+  margin: 0 5rpx;
+  box-sizing: border-box;
+  padding-bottom: calc((100% - 70rpx) / 7);
+  width: calc((100% - 70rpx) / 7);
+  position: relative;
+}
+
+.main-plate-word.active {
+  border-color: var(--td-brand-color, #09ba07);
+  box-shadow: 0 0 15rpx 0 var(--td-brand-color, #09ba07);
+}
+
+.main-plate-word text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-weight: 700;
+  font-size: 32rpx;
+}
+
+.main-plate-word .electric {
+  font-size: 22rpx;
+  color: var(--td-brand-color, #09ba07);
+  width: 22rpx;
+  line-height: 24rpx;
+}
+
+.main-plate-dot {
+  width: 15rpx;
+  height: 15rpx;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 0 5rpx;
+}
+
+.main-plate-keyboard {
+  background: #eee;
+  margin-left: -25rpx;
+  margin-right: -25rpx;
+  padding: 20rpx 25rpx 10rpx 25rpx;
+  box-sizing: border-box;
+  transition: all .3s;
+}
+
+.main-plate-keyboard>view {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.main-plate-key {
+  display: block;
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 0 8rpx 0 #bbb;
+  width: 80rpx;
+  height: 80rpx;
+  margin: 5rpx 0;
+  font-size: 32rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.main-plate-key.hover {
+  background: #efefef;
+}
+
+.main-plate-key.fill-block {
+  width: 80rpx;
+  height: 80rpx;
+  background: none;
+  box-shadow: none;
+}
+
+.main-plate-btn {
+  display: inline-block;
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 0 10rpx 0 #bbb;
+  font-size: 28rpx;
+  text-align: center;
+  margin: 0 0 0 10rpx;
+  padding: 0 25rpx;
+}
+
+.main-plate-btn-group {
+  display: flex;
+  justify-content: space-between;
+  background: #eee;
+  margin-left: -25rpx;
+  margin-right: -25rpx;
+  box-sizing: border-box;
+  padding: 0 25rpx 10rpx 25rpx;
+}
+
+.main-plate-btn--cancel {
+  margin: 0;
+}
+
+.main-plate-btn--submit {
+  background: var(--td-brand-color, #09ba07);
+  color: #fff;
+}
+
+.main-plate-btn--delete {
+  color: red;
+}
+
+.animation-scale-up {
+  animation-duration: .2s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+  animation-name: scale-up;
+}
+
+@keyframes scale-up {
+  0% {
+    opacity: .8;
+    transform: translateY(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

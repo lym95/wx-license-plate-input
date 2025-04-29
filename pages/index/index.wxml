@@ -1,0 +1,14 @@
+<view class="plate" hover wx:for="{{post.plate}}" wx:key="index" data-index="{{index}}" bind:tap="onOpen">
+  <view style="display: flex;align-items: center;">
+    <text style="margin-right: 32rpx;">车牌{{index+1}}</text>
+    <view wx:if="{{post.plate[index]}}" class="text plate-bg{{post.plate[index].length===7?'1':'2'}}">
+      <text style="transform: scaleX({{post.plate[index][7]?'0.9':''}});margin-right: {{post.plate[index][7]?'-2':'-2'}}px;" wx:for="{{post.plate[index]}}" wx:key="idx" wx:for-index="idx">{{item}}<text wx:if="{{idx===1}}">·</text></text>
+    </view>
+    <text wx:else="" style="color: #999;">请输入车牌号</text>
+  </view>
+  <view>
+    <button wx:if="{{post.plate.length===index+1}}" type="primary" size="mini" catchtap="addPlate">+</button>
+    <button wx:else="" size="mini" data-index="{{index}}" catchtap="delPlate">-</button>
+  </view>
+</view>
+<plate-input wx:if="{{show}}" plate="{{post.plate[plateIndex]}}" bind:export="onExport" bind:close="onClose" />
